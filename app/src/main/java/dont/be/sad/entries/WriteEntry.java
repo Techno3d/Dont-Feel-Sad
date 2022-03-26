@@ -36,6 +36,7 @@ public class WriteEntry {
         Gson gson = gsonBuilder.create();
 
         Entry newEntry = new Entry();
+
     }
     
 }
