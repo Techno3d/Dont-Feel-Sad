@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import dont.be.sad.GUI.Gui;
 import dont.be.sad.entries.Checker;
-import dont.be.sad.entries.WriteEntry;
+import dont.be.sad.entries.EntryHelper;
 
 public class App {
     public String getGreeting() {
@@ -14,7 +14,7 @@ public class App {
     public static void main(String[] args) {
         try {
             Checker.check();
-            WriteEntry.makeEntry();
+            EntryHelper.makeEntry();
         } catch (IOException e) {
             e.printStackTrace();
         }
