@@ -38,7 +38,7 @@
                         <Font size="42.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="araara" prefHeight="51.0" prefWidth="116.0" GridPane.columnIndex="2" GridPane.valignment="TOP">
+                  <ChoiceBox fx:id="araara" onMouseMoved="#changeFile" prefHeight="51.0" prefWidth="116.0" GridPane.columnIndex="2" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>

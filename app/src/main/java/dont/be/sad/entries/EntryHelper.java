@@ -26,7 +26,7 @@ public class EntryHelper {
                 Files.createFile(entry);
                 String date = String.format("{ \n \t\"LastDate\" : %d\n}", nDate.getDayOfYear());
                 Files.write(settings, date.getBytes());
-                write("", date, nDate.toString(), entry);
+                write("", LocalDate.now().toString(), LocalDate.now().toString(), entry);
             }
         }
     }

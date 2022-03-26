@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.2914572864321608, 0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.2914572864321608, 0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dont.be.sad.Gui.StartController">
   <items>
       <Label alignment="CENTER" prefHeight="113.0" prefWidth="1010.0" text="How are you feeling today?">
          <font>
@@ -32,16 +32,16 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <RadioButton mnemonicParsing="false" text="not sure" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <RadioButton mnemonicParsing="false" text="not the best " GridPane.rowIndex="1" />
-                  <RadioButton mnemonicParsing="false" text="Good" />
-                  <RadioButton mnemonicParsing="false" text="neutral " GridPane.columnIndex="1" />
+                  <RadioButton fx:id="notsure" mnemonicParsing="false" text="not sure" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <RadioButton fx:id="notbest" mnemonicParsing="false" text="not the best " GridPane.rowIndex="1" />
+                  <RadioButton fx:id="good" mnemonicParsing="false" text="Good" />
+                  <RadioButton fx:id="neutral" mnemonicParsing="false" text="neutral " GridPane.columnIndex="1" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
                </children>
             </GridPane>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="112.0" text="Submit" StackPane.alignment="BOTTOM_RIGHT" />
+            <Button fx:id="Lmao" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseReleased="#Lmao2" prefHeight="38.0" prefWidth="112.0" text="Submit" StackPane.alignment="BOTTOM_RIGHT" />
          </children>
       </StackPane>
   </items>

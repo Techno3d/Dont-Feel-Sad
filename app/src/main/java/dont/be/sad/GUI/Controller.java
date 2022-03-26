@@ -7,8 +7,12 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import com.google.gson.JsonSyntaxException;
+
 import dont.be.sad.entries.Entry;
 import dont.be.sad.entries.EntryHelper;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -50,8 +54,7 @@ public class Controller {
 
     @FXML
     public void toggleWrite(Event e) {
-        PIKA2.setVisible(KAKIMASU.isSelected());
-        System.out.println(PIKA2.isVisible());
+        PIKA2.setVisible(!KAKIMASU.isSelected());
     }
 
     @FXML
@@ -80,6 +83,15 @@ public class Controller {
                     todaysEntry = EntryHelper.read(file);
                 }
             }
+                
+            //Choice box fix
+            ChangeListener<String> changeFile = new ChangeListener<String>() {
+                @Override
+                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                    changeFile();
+                }
+            };
+            araara.getSelectionModel().selectedItemProperty().addListener(changeFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,17 +99,17 @@ public class Controller {
         
     @FXML
     public void saveMessage(Event e) {
-        EntryHelper.write(PIKA.getText(), todaysEntry.date, todaysEntry.name, Paths.get(System.getProperty("user.home"), ".journalEntries/" + LocalDate.now().toString() + ".json"));
+        EntryHelper.write(PIKA.getText(), todaysEntry.date, todaysEntry.name, Paths.get(System.getProperty("user.home"), ".journalEntries/" + todaysEntry.name + ".json"));
     }
     
     @FXML
     public void back(Event e) {
-        
+        //Not Finished
     }
 
     @FXML
     public void next(Event e) {
-
+        //Not Finished
     }
 
     @FXML
@@ -120,6 +132,20 @@ public class Controller {
     
     @FXML
     public void changeMode(Event e) {
-        KAKIMASU.setText(KAKIMASU.isSelected() ? "Draw" : "Type");
+        KAKIMASU.setText(!KAKIMASU.isSelected() ? "Draw" : "Type");
+    }
+    
+    // @FXML
+    public void changeFile() {
+        try {
+            todaysEntry = EntryHelper.read(Paths.get(System.getProperty("user.home"), ".journalEntries/" + araara.getSelectionModel().getSelectedItem() + ".json"));
+            PIKA.setText(todaysEntry.message);
+        } catch (JsonSyntaxException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
     }
 }
